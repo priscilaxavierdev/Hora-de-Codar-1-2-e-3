@@ -1,28 +1,36 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <script>
         // Escreva um programa para ler 2 notas de um aluno, calcular e imprimir a média final. Considere que a nota de aprovação é 9,5. Logo após escrever a mensagem "Calcular a média de outro aluno Sim/Não?" e solicitar um resposta. Se a resposta for "S", o programa deve ser executado novamente, caso contrário deve ser encerrado exibindo a quantidade de alunos aprovados.
-       var nota1 = parseFloat(prompt("Informe a primeira nota:"));
-       var nota2 = parseFloat(prompt("Informe a segunda nota:"));
-       var conta = nota1 + nota2;
-       var media = (nota1 + nota2) / 2; //Os parênteses serve para fazer primeira soma e  depois a divisão
+        let aprovados = 0;
 
-       document.write("A média final do aluno é: " + media + " ,portanto ")
-        if(media >= 9.5)
-        {
-            document.write("APROVADO!");
+        while (true) {
+            var nota1 = parseFloat(prompt("Informe a primeira nota do aluno"));
+            var nota2 = parseFloat(prompt("Informe a segunda nota do aluno"));
+
+            var resultado = (nota1 + nota2) / 2;
+
+            if (resultado >= 9.5) {
+                aprovados++
+            }
+
+            var resposta = prompt("Você deseja calcular a média de outro aluno? (S/N)");
+            if (resposta.toUpperCase() !== "S") {
+                break;
+            }
         }
-        else if(media < 9.5)
-        {
-            document.write("REPROVADO!");
-        }
+
+        alert("Quantidade de alunos aprovados: " + aprovados);
     </script>
 </body>
-</html> 
+
+</html>
